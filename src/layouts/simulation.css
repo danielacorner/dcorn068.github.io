@@ -1,0 +1,66 @@
+div.tooltip {
+  position: absolute;
+  background-color: white;
+  max-width: 200px;
+  height: auto;
+  padding: 1px;
+  border-style: solid;
+  border-radius: 4px;
+  border-width: 1px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+div.tooltip article {
+  display: grid;
+  height: 100%;
+  justify-items: center;
+}
+
+div.tooltip h6 {
+  font-size: 16px;
+}
+
+div.tooltip p[desc] {
+  font-size: 14px;
+  font-weight: 100;
+}
+
+div.tooltip p[caption] {
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 100;
+}
+
+div.tooltip p[tools] {
+  display: grid;
+  font-size: 12px;
+  font-weight: 100;
+  align-self: bottom;
+}
+
+.projectCircle {
+  stroke: rgba(0, 0, 0, 0.9);
+  cursor: pointer;
+}
+
+.projectCircle.glow {
+  filter: url(#glow);
+}
+
+.link {
+  stroke: whitesmoke;
+  stroke-width: 1.5px;
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+}
+
+.linkAppear {
+  animation: dash 0.3s ease-in-out forwards;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
