@@ -32,9 +32,9 @@ const Portfolio = styled.div`
 
   grid-template-columns: 1fr;
   #hero {
-    opacity: 0;
-    animation: fadeIn 2s;
-    opacity: 1;
+    /* opacity: 0; */
+    /* animation: fadeIn 2s; */
+    /* opacity: 1; */
   }
   .header {
     width: 100%;
