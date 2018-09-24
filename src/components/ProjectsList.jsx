@@ -56,6 +56,9 @@ const Wrapper = styled.aside`
           transition: all ease-in-out 0.15s;
           cursor: pointer;
           .projectLink {
+            padding-left: 16px;
+            margin-bottom: 5px;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
             font-size: 14px;
             text-align: left;
             text-transform: none;
@@ -135,7 +138,22 @@ const ActionButtons = styled.div`
       }
     }
   }
+  .btnMoreInfo {
+    border: 1px solid rgba(63, 81, 181, 0.5);
+  }
+  .btnVisitSite {
+    /* color: lightpink; */
+    border: 1px solid rgba(245, 0, 87, 0.5);
+    &:hover {
+      background: rgba(245, 0, 87, 0.08);
+    }
+  }
   button {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-size: 14px;
+    border-radius: 4px;
+    width: 105px;
+    height: 38px;
     text-transform: none;
     background: rgba(255, 255, 255, 0.08);
     color: lightpink;
@@ -146,8 +164,10 @@ const ActionButtons = styled.div`
         background: #00008033;
       }
     }
+    cursor: pointer;
     span {
-      margin-bottom: 1px;
+      margin-left: 3px;
+      margin-bottom: 1.5px;
       svg {
         color: inherit;
         margin-top: -1px;
@@ -156,6 +176,8 @@ const ActionButtons = styled.div`
       display: grid;
       grid-gap: 2px;
       grid-template-columns: auto auto;
+      align-items: center;
+      justify-items: center;
     }
   }
 `;
@@ -234,9 +256,7 @@ class ProjectsList extends Component {
                     this.props.onChangeVisibility(project.frontmatter.id);
                   }}
                 >
-                  <Button className="projectLink">
-                    {project.frontmatter.title}
-                  </Button>
+                  <p className="projectLink">{project.frontmatter.title}</p>
                   <Typography className="badges" variant="caption">
                     {project.frontmatter.tools.map(tool => {
                       return <SvgIcons key={tool.toString()} tool={tool} />;
@@ -247,29 +267,35 @@ class ProjectsList extends Component {
                       `visible`} actionButtons`}
                     id={`actionButtons_${project.frontmatter.id}`}
                   >
-                    <Button
-                      size="small"
-                      color="primary"
-                      variant="outlined"
+                    <button
+                      className="btnMoreInfo"
+                      // size="small"
+                      // color="primary"
+                      // variant="outlined"
                       onClick={() =>
                         this.handleNavigate(project.frontmatter.path)
                       }
                       role="link"
                     >
-                      <span>More Info</span>
-                      <InfoIcon />
-                    </Button>
-                    <Button
-                      size="small"
-                      color="secondary"
-                      variant="outlined"
+                      <span>
+                        More Info
+                        <InfoIcon />
+                      </span>
+                    </button>
+                    <button
+                      className="btnVisitSite"
+                      // size="small"
+                      // color="secondary"
+                      // variant="outlined"
                       onClick={() =>
                         window.open(project.frontmatter.website, "_blank")
                       }
                     >
-                      <span>Visit Site</span>
-                      <OpenIcon />
-                    </Button>
+                      <span>
+                        Visit Site
+                        <OpenIcon />
+                      </span>
+                    </button>
                   </ActionButtons>
                 </ListItem>
               ))}
